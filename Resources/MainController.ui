@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>377</width>
+    <height>138</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Проект Конвертор</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pButtonPath">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>10</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Указать путь к pdf</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pButtonStart">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>55</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Конвертировать</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>6</y>
+      <width>211</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Путь до папки с файлами pdf</string>
+    </property>
+    <widget class="QLabel" name="labelPath">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>191</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="labelFound">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>361</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBoxRec">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>90</y>
+      <width>141</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Рекурсивный обход</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>377</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="title">
+      <string>Открыть папку</string>
+     </property>
+     <addaction name="menu_action_pdf"/>
+     <addaction name="menu_action_tiff"/>
+    </widget>
+    <addaction name="menu_2"/>
+    <addaction name="menu_action_path"/>
+    <addaction name="menu_action_start"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Помощь</string>
+    </property>
+    <addaction name="menu_about"/>
+    <addaction name="menu_version"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="action">
+   <property name="text">
+    <string>Открыть папку tiff</string>
+   </property>
+  </action>
+  <action name="menu_install">
+   <property name="text">
+    <string>Установка</string>
+   </property>
+  </action>
+  <action name="menu_about">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+  <action name="menu_version">
+   <property name="text">
+    <string>Версия</string>
+   </property>
+  </action>
+  <action name="menu_action_start">
+   <property name="text">
+    <string>Конвертировать</string>
+   </property>
+  </action>
+  <action name="menu_action_path">
+   <property name="text">
+    <string>Указать путь к pdf</string>
+   </property>
+  </action>
+  <action name="menu_action_pdf">
+   <property name="text">
+    <string>с файлами pdf</string>
+   </property>
+  </action>
+  <action name="menu_action_tiff">
+   <property name="text">
+    <string>c файлами tiff</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

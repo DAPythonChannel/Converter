@@ -1,0 +1,1 @@
+pyuic6 MainController.ui -o MainWindowForm.py
