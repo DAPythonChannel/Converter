@@ -15,7 +15,7 @@ PATH_FILE_OUT = os.path.dirname(__file__)+r"\Out"
 
 
 class App(QtWidgets.QMainWindow, UI.Ui_MainWindow, Controller):
-    
+    list_path=[]
     def __init__(self) ->None:
         super().__init__()        
         self.setWindowIcon(QIcon(ICON)) 
@@ -48,7 +48,14 @@ class App(QtWidgets.QMainWindow, UI.Ui_MainWindow, Controller):
     def convert_start(self) ->None:
         '''Запускает конвертацию блокируя основной поток с учетом всех необходимых проверок
         Основной поток не нужен, т.к. в процессе работы к нему обращатся не будут'''
-        pass
+        path = self.labelPath.text()
+        if path:
+            if os.path.exists(path):
+                if self.list_path:
+                    self.start(self.list_path, PATH_FILE_OUT)
+                else: self.message_show(title="Ошибки в конвертации.",text="В папке pdf-файлы не найдены!")
+            else: self.message_show(title="Ошибки в конвертации.",text="Папка не существует!")
+        else: self.message_show(title="Ошибки в конвертации.",text="Не выбран путь к pdf-файлам!")
     
     def message_show(self, text: str, title: str, icon: str="Warning") ->None:
         '''Формирование сообщений пользователю'''
