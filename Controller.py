@@ -2,16 +2,14 @@ from pdf2image import convert_from_path
 from tqdm import tqdm
 import os
 
-'''Путь к папкам: результат и библиотека'''
 PATH_TO_LIB=os.path.dirname(__file__)+r"\Library"
-PATH_FILE_OUT = os.path.dirname(__file__)+r"\Out"
 
 class Controller():
 
     def __init__(self):
         pass
 
-    def start(self, list_path: list) ->None: 
+    def start(self, list_path: list, path_file_out: str) ->None: 
         '''Запуск процесса конвертирования и вывод на экран вспомогательных сообщений.
         По завершению открывает папку с файлами.
         '''         
@@ -19,13 +17,13 @@ class Controller():
         print("Логирование конвертации:\n")
         for i, path in enumerate(list_path,1):
             print(f"№{i} Конвертируется файл: {path}")
-            self.converting(self,i, path) # запуск функции конвертация
+            self.converting(self,i, path, path_file_out) # запуск функции конвертация
             print(f'Конвертация файла завершена, создан следующий файл: out{i}.tiff')
             print("--------------------------------------------------------------------------------------")
         print("\nКонвертация завершена, после закрытия логирование будет удалено.") 
-        os.startfile(PATH_FILE_OUT)
+        os.startfile(path_file_out)
     
-    def converting(self, index: int, path: str) -> None:        
+    def converting(self, index: int, path: str, path_file_out: str) -> None:        
         '''Запуск процесса ковертирования, на входе идентификатор списка и его путь,
         после превращает pdf в массив картинок, складывает все картинки в необходимый
         формат tiff, на выходе показывает прогресс бар и конвертированный файл.
@@ -33,7 +31,7 @@ class Controller():
         images = convert_from_path(path, fmt='jpeg', poppler_path=PATH_TO_LIB) 
         progress_bar = tqdm(images,desc="Прогресс конвертации:",total=len(images))
         for i in range(len(images)):
-            images[0].save(f'{PATH_FILE_OUT}\out{index}.tiff',save_all=True,append_images=images[1:],compression='tiff_lzw') 
+            images[0].save(f'{path_file_out}\out{index}.tiff',save_all=True,append_images=images[1:],compression='tiff_lzw') 
             progress_bar.update() 
         progress_bar.close()
 

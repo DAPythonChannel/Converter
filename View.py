@@ -13,6 +13,7 @@ ICON = os.path.dirname(__file__) + r"\Resources\icon.png"
 ABOUT = os.path.dirname(__file__) + r"\Resources\about.txt"
 PATH_FILE_OUT = os.path.dirname(__file__)+r"\Out"
 
+
 class App(QtWidgets.QMainWindow, UI.Ui_MainWindow, Controller):
     
     def __init__(self) ->None:
