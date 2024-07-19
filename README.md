@@ -16,7 +16,7 @@
 <p>Устанавливаем нужные библиотеки следующей командой:</p>
 <p><code>pip install -r req.txt или pip3.9 install -r req.txt</code></p>
 <p>Windows<p>
-<p><code>conda install -c conda-forge poppler<code></p>
+<p><code>conda install -c conda-forge poppler</code></p>
 <p>или используйте архив Library с указанием пути к нему</p>
 
 <p>MacOS:</p>
