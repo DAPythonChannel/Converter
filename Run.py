@@ -9,9 +9,9 @@ import sys, os
 import UI
 from Controller import Controller
 '''Пути к ресурсам'''
-ICON = os.path.dirname(__file__) + r"\Resources\icon.png"
-ABOUT = os.path.dirname(__file__) + r"\Resources\about.txt"
-PATH_FILE_OUT = os.path.dirname(__file__)+r"\Out"
+ICON = os.path.join(os.path.dirname(__file__), "Resources","icon.png")
+ABOUT = os.path.join(os.path.dirname(__file__),"Resources","about.txt")
+PATH_FILE_OUT = os.path.join(os.path.dirname(__file__),"out")
 
 
 class App(QtWidgets.QMainWindow, UI.Ui_MainWindow, Controller):
@@ -91,7 +91,13 @@ class App(QtWidgets.QMainWindow, UI.Ui_MainWindow, Controller):
     def about_show(self) ->None:
         '''Показывает информацию о программе через MessageBox'''
         os.startfile(ABOUT)
-
+    
+    def startfine(self) -> None:
+        '''Открывает папку'''
+        if os.name == "nt":
+            os.startfile(r"\out")
+        else:
+            os.system(f'open {r"./out"}')
 def main():
     app = QtWidgets.QApplication(sys.argv)  # Новый экземпляр QApplication
     window = App()  # Создаём объект класса ExampleApp

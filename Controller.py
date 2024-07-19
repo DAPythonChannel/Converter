@@ -2,7 +2,7 @@ from pdf2image import convert_from_path
 from tqdm import tqdm
 import os
 
-PATH_TO_LIB=os.path.dirname(__file__)+r"\Library"
+PATH_TO_LIB=os.path.join(os.path.dirname(__file__),"Library")
 
 class Controller():
 
@@ -21,17 +21,17 @@ class Controller():
             print(f'Конвертация файла завершена, создан следующий файл: out{i}.tiff')
             print("--------------------------------------------------------------------------------------")
         print("\nКонвертация завершена, после закрытия логирование будет удалено.") 
-        os.startfile(path_file_out)
+        self.startfine()
     
     def converting(self, index: int, path: str, path_file_out: str) -> None:        
         '''Запуск процесса ковертирования, на входе идентификатор списка и его путь,
         после превращает pdf в массив картинок, складывает все картинки в необходимый
         формат tiff, на выходе показывает прогресс бар и конвертированный файл.
         '''
-        images = convert_from_path(path, fmt='jpeg', poppler_path=PATH_TO_LIB) 
+        images = convert_from_path(path, fmt='jpeg')#, poppler_path=PATH_TO_LIB добавить если нужно указать прямой путь до библиотек 
         progress_bar = tqdm(images,desc="Прогресс конвертации:",total=len(images))
         for i in range(len(images)):
-            images[0].save(f'{path_file_out}\out{index}.tiff',save_all=True,append_images=images[1:],compression='tiff_lzw') 
+            images[0].save(os.path.join(path_file_out, f"out{index}.tiff"),save_all=True,append_images=images[1:],compression='tiff_lzw') 
             progress_bar.update() 
         progress_bar.close()
 
@@ -53,4 +53,9 @@ class Controller():
         if len(list) == 0: print("В папке отсутствуют файлы pdf.") 
         return list
 
-    
+    def startfine(self) -> None:
+        '''Открывает папку'''
+        if os.name == "nt":
+            os.startfile(r"\out")
+        else:
+            os.system(f'open {r"./out"}')

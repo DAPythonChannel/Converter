@@ -1,0 +1,7 @@
+pdf2image==1.16.2
+pillow==9.0.1
+PyQt6==6.2.3
+PyQt6-Qt6==6.2.3
+PyQt6-sip==13.2.1
+tqdm==4.49.0
+colorama==0.4.4
