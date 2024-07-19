@@ -52,7 +52,7 @@ class App(QtWidgets.QMainWindow, UI.Ui_MainWindow, Controller):
         if path:
             if os.path.exists(path):
                 if self.list_path:
-                    self.start(self.list_path, PATH_FILE_OUT)
+                    self.start(self.list_path)
                 else: self.message_show(title="Ошибки в конвертации.",text="В папке pdf-файлы не найдены!")
             else: self.message_show(title="Ошибки в конвертации.",text="Папка не существует!")
         else: self.message_show(title="Ошибки в конвертации.",text="Не выбран путь к pdf-файлам!")
@@ -95,7 +95,7 @@ class App(QtWidgets.QMainWindow, UI.Ui_MainWindow, Controller):
     def startfine(self) -> None:
         '''Открывает папку'''
         if os.name == "nt":
-            os.startfile(r"\out")
+            os.startfile(PATH_FILE_OUT)
         else:
             os.system(f'open {r"./out"}')
 def main():
