@@ -1,7 +1,9 @@
 <h1 align="center"># Converter </h1>
 <h1 align="center">Language:RU </h1>
 <h2>Вид программы:</h2>
-<image src="Resources/form.png" alt="View software">
+<image src="Resources/form.png" alt="View software in MacOS">
+<image src="Resources/form_windows.png" alt="View software in Windows">
+
 <h2>Описание ПО:</h2>
 <p>Программное обеспечение предназначено для конвертации файлов pdf в файлы tiff. ПО выполняет обход (рекрусивный или простой) по указанной папке и делает поиск всех pdf файлов, выводит все файлы списком. По завершению поиска выполняет конвертацию и открывает путь к файлу.
 </p>
