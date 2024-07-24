@@ -7,13 +7,14 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.WindowModality.NonModal)
-        MainWindow.setFixedSize(377, 138) #При обновлении setFixedSize вылетает из UI.py, в Qt Designer не нашел способ установки параметра setFixedSize.
+        MainWindow.setFixedSize(377, 148) #При обновлении setFixedSize вылетает из UI.py, в Qt Designer не нашел способ установки параметра setFixedSize.
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -24,10 +25,19 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pButtonPath = QtWidgets.QPushButton(self.centralwidget)
-        self.pButtonPath.setGeometry(QtCore.QRect(230, 10, 141, 31))
+                #Убираю проблемы с отображение в Windows и MacOS для кнопки Конвертировать
+        if os.name == "nt":
+            self.pButtonPath.setGeometry(QtCore.QRect(230, 10, 141, 31))
+        else:
+            self.pButtonPath.setGeometry(QtCore.QRect(230, 19, 141, 31))
+ 
         self.pButtonPath.setObjectName("pButtonPath")
         self.pButtonStart = QtWidgets.QPushButton(self.centralwidget)
-        self.pButtonStart.setGeometry(QtCore.QRect(230, 55, 141, 31))
+        #Убираю проблемы с отображение в Windows и MacOS для кнопки Конвертировать
+        if os.name == "nt":
+            self.pButtonStart.setGeometry(QtCore.QRect(230, 55, 141, 31))
+        else:
+            self.pButtonStart.setGeometry(QtCore.QRect(230, 58, 141, 31))
         self.pButtonStart.setObjectName("pButtonStart")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(10, 6, 211, 80))
@@ -43,7 +53,11 @@ class Ui_MainWindow(object):
         self.labelFound.setText("")
         self.labelFound.setObjectName("labelFound")
         self.checkBoxRec = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBoxRec.setGeometry(QtCore.QRect(230, 90, 141, 18))
+        #Убираю проблемы с отображение в Windows и MacOS для чека Рекурсивный обход
+        if os.name == "nt":
+            self.checkBoxRec.setGeometry(QtCore.QRect(230, 90, 141, 18))
+        else:
+            self.checkBoxRec.setGeometry(QtCore.QRect(228, 90, 145, 18))
         self.checkBoxRec.setObjectName("checkBoxRec")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)

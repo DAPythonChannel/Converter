@@ -17,7 +17,7 @@ PATH_FILE_OUT = os.path.join(os.path.dirname(__file__),"out")
 class App(QtWidgets.QMainWindow, UI.Ui_MainWindow, Controller):
     list_path=[]
     def __init__(self) ->None:
-        super().__init__()        
+        super().__init__()    
         self.setWindowIcon(QIcon(ICON)) 
         self.setupUi(self)   
 
